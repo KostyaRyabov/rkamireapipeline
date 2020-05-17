@@ -1,0 +1,7 @@
+{
+	"name": "rkamireashir",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "integration runtime (self-hosted)"
+	}
+}
