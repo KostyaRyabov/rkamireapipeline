@@ -15,7 +15,11 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"scriptPath": ""
+					"scriptPath": "",
+					"scriptLinkedService": {
+						"referenceName": "dlStorage",
+						"type": "LinkedServiceReference"
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDataLakeAnalytics",
