@@ -1,0 +1,33 @@
+{
+	"name": "log_List",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LocalSqlServer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "productID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DateTime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "log"
+		}
+	}
+}
