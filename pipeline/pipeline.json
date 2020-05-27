@@ -192,7 +192,7 @@
 				}
 			},
 			{
-				"name": "Copy data1",
+				"name": "save result",
 				"type": "Copy",
 				"dependsOn": [
 					{
