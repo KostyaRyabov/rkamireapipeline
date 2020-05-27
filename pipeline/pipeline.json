@@ -5,6 +5,55 @@
 			{
 				"name": "U-SQL1",
 				"type": "DataLakeAnalyticsU-SQL",
+				"dependsOn": [
+					{
+						"activity": "import categories",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "import manufacturers",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "import products",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "import logs",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"scriptPath": "u-sql1/Unnamed",
+					"scriptLinkedService": {
+						"referenceName": "dlStorage",
+						"type": "LinkedServiceReference"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeAnalytics",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "import categories",
+				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
@@ -15,15 +64,83 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"scriptPath": "",
-					"scriptLinkedService": {
-						"referenceName": "dlStorage",
-						"type": "LinkedServiceReference"
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"dataset": {
+						"referenceName": "category_List",
+						"type": "DatasetReference"
 					}
+				}
+			},
+			{
+				"name": "import manufacturers",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
 				},
-				"linkedServiceName": {
-					"referenceName": "AzureDataLakeAnalytics",
-					"type": "LinkedServiceReference"
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"dataset": {
+						"referenceName": "manufacturer_List",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "import logs",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"dataset": {
+						"referenceName": "log_List",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "import products",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"dataset": {
+						"referenceName": "product_List",
+						"type": "DatasetReference"
+					}
 				}
 			}
 		],
