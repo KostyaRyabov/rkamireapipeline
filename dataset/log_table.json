@@ -1,5 +1,5 @@
 {
-	"name": "product_table",
+	"name": "log_table",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
@@ -45,7 +45,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "products"
+			"table": "log"
 		}
 	}
 }

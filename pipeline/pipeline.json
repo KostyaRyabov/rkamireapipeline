@@ -3,32 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
-				"type": "Copy",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "SqlServerSource",
-						"queryTimeout": "02:00:00"
-					},
-					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "category_List",
-						"type": "DatasetReference"
-					}
-				]
-			},
-			{
 				"name": "import products",
 				"type": "Copy",
 				"dependsOn": [],
@@ -58,17 +32,140 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "product_table",
 						"type": "DatasetReference"
 					}
 				]
 			},
 			{
-				"name": "U-SQL1",
+				"name": "import logs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "log_List",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "log_table",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "import categories",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "product_List",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "category_table",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "import manufacturers",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "product_List",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "manufacturer_table",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "statistics collection",
 				"type": "DataLakeAnalyticsU-SQL",
 				"dependsOn": [
 					{
 						"activity": "import products",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "import logs",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "import manufacturers",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "import categories",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -93,6 +190,39 @@
 					"referenceName": "AzureDataLakeAnalytics",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "statistics collection",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "statistic_table",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
