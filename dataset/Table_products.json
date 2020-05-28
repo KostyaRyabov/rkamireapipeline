@@ -1,0 +1,71 @@
+{
+	"name": "Table_products",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "localSqlServer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "categoryID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "manufacturerID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			},
+			{
+				"name": "1",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "2",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "3",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "4",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "5",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "price",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "products"
+		}
+	}
+}

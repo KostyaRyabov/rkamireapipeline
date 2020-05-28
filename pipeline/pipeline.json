@@ -15,8 +15,18 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "Table_logs",
+						"type": "DatasetReference"
+					}
+				]
 			},
 			{
 				"name": "import products",
@@ -31,8 +41,18 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "Table_products",
+						"type": "DatasetReference"
+					}
+				]
 			},
 			{
 				"name": "import categories",
@@ -47,8 +67,18 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "Table_categories",
+						"type": "DatasetReference"
+					}
+				]
 			},
 			{
 				"name": "import manufacturers",
@@ -63,8 +93,18 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "Table_manufacturers",
+						"type": "DatasetReference"
+					}
+				]
 			},
 			{
 				"name": "statistics collection",
