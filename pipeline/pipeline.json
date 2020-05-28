@@ -19,11 +19,28 @@
 						"type": "SqlServerSource",
 						"queryTimeout": "02:00:00"
 					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "Table_logs",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "RAW_logs",
 						"type": "DatasetReference"
 					}
 				]
@@ -45,11 +62,28 @@
 						"type": "SqlServerSource",
 						"queryTimeout": "02:00:00"
 					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "Table_products",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ROW_products",
 						"type": "DatasetReference"
 					}
 				]
@@ -71,11 +105,28 @@
 						"type": "SqlServerSource",
 						"queryTimeout": "02:00:00"
 					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "Table_categories",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ROW_categories",
 						"type": "DatasetReference"
 					}
 				]
@@ -97,11 +148,28 @@
 						"type": "SqlServerSource",
 						"queryTimeout": "02:00:00"
 					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "Table_manufacturers",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ROW_manufacturers",
 						"type": "DatasetReference"
 					}
 				]
@@ -144,7 +212,15 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"scriptPath": ""
+					"scriptPath": "statistics collection/Unnamed",
+					"scriptLinkedService": {
+						"referenceName": "dlStorage",
+						"type": "LinkedServiceReference"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeAnalytics",
+					"type": "LinkedServiceReference"
 				}
 			},
 			{
