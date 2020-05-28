@@ -1,0 +1,17 @@
+{
+	"name": "localSqlServer",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=localhost;initial catalog=InputDataBase",
+			"userName": "rkrtu",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2MGFkZGZjMC03MGI1LTQ1OWEtYjM3ZC1hYjhjMzZiYjAzYjEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "rkamireashir",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
