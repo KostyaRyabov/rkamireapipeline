@@ -212,7 +212,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"scriptPath": "statistics collection/Unnamed",
+					"scriptPath": "statistics collection/script",
 					"scriptLinkedService": {
 						"referenceName": "dlStorage",
 						"type": "LinkedServiceReference"
