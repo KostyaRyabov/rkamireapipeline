@@ -1,0 +1,29 @@
+{
+	"name": "ROW_manufacturers",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dlStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "manufacturer.csv",
+				"folderPath": "TASK/RAW"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}
