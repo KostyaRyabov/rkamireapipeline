@@ -222,53 +222,6 @@
 					"referenceName": "AzureDataLakeAnalytics",
 					"type": "LinkedServiceReference"
 				}
-			},
-			{
-				"name": "export popularity",
-				"description": "",
-				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "statistics collection",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"enableStaging": false
-				}
-			},
-			{
-				"name": "export sales",
-				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "statistics collection",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"enableStaging": false
-				}
 			}
 		],
 		"annotations": []
