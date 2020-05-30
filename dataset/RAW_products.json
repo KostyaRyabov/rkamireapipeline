@@ -1,5 +1,5 @@
 {
-	"name": "ROW_products",
+	"name": "RAW_products",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "dlStorage",

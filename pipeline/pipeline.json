@@ -83,7 +83,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ROW_products",
+						"referenceName": "RAW_products",
 						"type": "DatasetReference"
 					}
 				]
@@ -126,7 +126,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ROW_categories",
+						"referenceName": "RAW_categories",
 						"type": "DatasetReference"
 					}
 				]
@@ -169,7 +169,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ROW_manufacturers",
+						"referenceName": "RAW_manufacturers",
 						"type": "DatasetReference"
 					}
 				]
