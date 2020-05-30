@@ -8,10 +8,6 @@
 			"tenant": "12873d38-e385-41f8-9f52-081db89b3162",
 			"subscriptionId": "5ecff6c0-7116-4718-83e7-fef6275959ca",
 			"resourceGroupName": "rka-mirea-rg"
-		},
-		"connectVia": {
-			"referenceName": "rkamireashir",
-			"type": "IntegrationRuntimeReference"
 		}
 	}
 }
