@@ -477,7 +477,7 @@
 								},
 								"sink": {
 									"name": "reiting",
-									"type": "Int32"
+									"type": "Int64"
 								}
 							}
 						]
@@ -550,7 +550,7 @@
 								},
 								"sink": {
 									"name": "count",
-									"type": "Int32"
+									"type": "Int64"
 								}
 							},
 							{
@@ -560,7 +560,7 @@
 								},
 								"sink": {
 									"name": "price",
-									"type": "Int32"
+									"type": "Int64"
 								}
 							}
 						]
@@ -633,7 +633,7 @@
 								},
 								"sink": {
 									"name": "mobile count",
-									"type": "Int32"
+									"type": "Int64"
 								}
 							},
 							{
@@ -643,7 +643,7 @@
 								},
 								"sink": {
 									"name": "mobile price",
-									"type": "Int32"
+									"type": "Int64"
 								}
 							},
 							{
@@ -653,7 +653,7 @@
 								},
 								"sink": {
 									"name": "laptop count",
-									"type": "Int32"
+									"type": "Int64"
 								}
 							},
 							{
@@ -663,7 +663,7 @@
 								},
 								"sink": {
 									"name": "laptop price",
-									"type": "Int32"
+									"type": "Int64"
 								}
 							},
 							{
@@ -673,7 +673,7 @@
 								},
 								"sink": {
 									"name": "tablet count",
-									"type": "Int32"
+									"type": "Int64"
 								}
 							},
 							{
@@ -683,7 +683,7 @@
 								},
 								"sink": {
 									"name": "tablet price",
-									"type": "Int32"
+									"type": "Int64"
 								}
 							}
 						]
