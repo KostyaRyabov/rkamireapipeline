@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"scriptPath": "u-sql1/Unnamed",
+					"scriptPath": "statistics collection/script",
 					"scriptLinkedService": {
 						"referenceName": "dlStorage",
 						"type": "LinkedServiceReference"
