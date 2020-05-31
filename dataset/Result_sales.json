@@ -14,13 +14,13 @@
 			},
 			{
 				"name": "count",
-				"type": "int",
-				"precision": 10
+				"type": "bigint",
+				"precision": 19
 			},
 			{
 				"name": "price",
-				"type": "int",
-				"precision": 10
+				"type": "bigint",
+				"precision": 19
 			}
 		],
 		"typeProperties": {
