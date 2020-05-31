@@ -1,0 +1,51 @@
+{
+	"name": "Result_QuantitativeCharacteristic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlServer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "date",
+				"type": "date"
+			},
+			{
+				"name": "mobile count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "mobile price",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "laptop count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "laptop price",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "tablet count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "tablet price",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "QuantitativeCharacteristic"
+		}
+	}
+}

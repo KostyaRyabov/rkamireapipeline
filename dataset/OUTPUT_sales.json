@@ -1,0 +1,32 @@
+{
+	"name": "OUTPUT_sales",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dlStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "sales.csv",
+				"folderPath": "TASK/OUTPUT"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}

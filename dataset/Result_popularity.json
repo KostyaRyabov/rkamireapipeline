@@ -1,0 +1,26 @@
+{
+	"name": "Result_popularity",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlServer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "manufacturer",
+				"type": "varchar"
+			},
+			{
+				"name": "reiting",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "popularity"
+		}
+	}
+}

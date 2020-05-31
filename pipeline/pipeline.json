@@ -422,6 +422,285 @@
 					"referenceName": "AzureDataLakeAnalytics",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "export popularity",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "statistics collection",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 1
+								},
+								"sink": {
+									"name": "manufacturer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "Int32",
+									"ordinal": 2
+								},
+								"sink": {
+									"name": "reiting",
+									"type": "Int32"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "OUTPUT_populatiry",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Result_popularity",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "export sales",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "statistics collection",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 1
+								},
+								"sink": {
+									"name": "manufacturer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "Int32",
+									"ordinal": 2
+								},
+								"sink": {
+									"name": "count",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "Int32",
+									"ordinal": 3
+								},
+								"sink": {
+									"name": "price",
+									"type": "Int32"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "OUTPUT_sales",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Result_sales",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "export QuantitativeCharacteristic",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "statistics collection",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"type": "DateTime",
+									"ordinal": 1
+								},
+								"sink": {
+									"name": "date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"type": "Int32",
+									"ordinal": 2
+								},
+								"sink": {
+									"name": "mobile count",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "Int32",
+									"ordinal": 3
+								},
+								"sink": {
+									"name": "mobile price",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "Int32",
+									"ordinal": 4
+								},
+								"sink": {
+									"name": "laptop count",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "Int32",
+									"ordinal": 5
+								},
+								"sink": {
+									"name": "laptop price",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "Int32",
+									"ordinal": 6
+								},
+								"sink": {
+									"name": "tablet count",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "Int32",
+									"ordinal": 7
+								},
+								"sink": {
+									"name": "tablet price",
+									"type": "Int32"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "OUTPUT_QuantitativeCharacteristic",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Result_QuantitativeCharacteristic",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
