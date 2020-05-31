@@ -14,8 +14,8 @@
 			},
 			{
 				"name": "reiting",
-				"type": "int",
-				"precision": 10
+				"type": "bigint",
+				"precision": 19
 			}
 		],
 		"typeProperties": {
