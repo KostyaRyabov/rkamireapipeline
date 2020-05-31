@@ -14,33 +14,33 @@
 			},
 			{
 				"name": "mobile count",
-				"type": "int",
-				"precision": 10
+				"type": "bigint",
+				"precision": 19
 			},
 			{
 				"name": "mobile price",
-				"type": "int",
-				"precision": 10
+				"type": "bigint",
+				"precision": 19
 			},
 			{
 				"name": "laptop count",
-				"type": "int",
-				"precision": 10
+				"type": "bigint",
+				"precision": 19
 			},
 			{
 				"name": "laptop price",
-				"type": "int",
-				"precision": 10
+				"type": "bigint",
+				"precision": 19
 			},
 			{
 				"name": "tablet count",
-				"type": "int",
-				"precision": 10
+				"type": "bigint",
+				"precision": 19
 			},
 			{
 				"name": "tablet price",
-				"type": "int",
-				"precision": 10
+				"type": "bigint",
+				"precision": 19
 			}
 		],
 		"typeProperties": {
