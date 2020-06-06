@@ -7,17 +7,65 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "rkamireadf"
 		},
-		"rkamireaAzureBlobStorage_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'rkamireaAzureBlobStorage'"
-		},
-		"rkamireaAzureSqlDatabase_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'rkamireaAzureSqlDatabase'"
-		},
 		"AzureBlobStorage1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureDataLakeAnalytics_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureDataLakeAnalytics'"
+		},
+		"AzureSqlServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlServer'"
+		},
+		"localSqlServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'localSqlServer'"
+		},
+		"localSqlServer_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'localSqlServer'"
+		},
+		"AzureDataLakeAnalytics_properties_typeProperties_accountName": {
+			"type": "string",
+			"defaultValue": "rkamireadla"
+		},
+		"AzureDataLakeAnalytics_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "96f99cab-b60b-43a3-a2a8-eb32d4005921"
+		},
+		"AzureDataLakeAnalytics_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "12873d38-e385-41f8-9f52-081db89b3162"
+		},
+		"AzureDataLakeAnalytics_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "5ecff6c0-7116-4718-83e7-fef6275959ca"
+		},
+		"AzureDataLakeAnalytics_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "rka-mirea-rg"
+		},
+		"dlStorage_properties_typeProperties_dataLakeStoreUri": {
+			"type": "string",
+			"defaultValue": "https://rkamireadls.azuredatalakestore.net/webhdfs/v1"
+		},
+		"dlStorage_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "12873d38-e385-41f8-9f52-081db89b3162"
+		},
+		"dlStorage_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "5ecff6c0-7116-4718-83e7-fef6275959ca"
+		},
+		"dlStorage_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "rka-mirea-rg"
+		},
+		"localSqlServer_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "rkrtu"
 		},
 		"containerUri": {
 			"type": "string",
@@ -46,18 +94,74 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"rkamireaAzureBlobStorage_connectionString": {
-						"value": "[parameters('rkamireaAzureBlobStorage_connectionString')]"
-					},
-					"rkamireaAzureSqlDatabase_connectionString": {
-						"value": "[parameters('rkamireaAzureSqlDatabase_connectionString')]"
-					},
 					"AzureBlobStorage1_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureSqlServer_connectionString": {
+						"value": "[parameters('AzureSqlServer_connectionString')]"
+					},
+					"AzureDataLakeAnalytics_servicePrincipalKey": {
+						"value": "[parameters('AzureDataLakeAnalytics_servicePrincipalKey')]"
+					},
+					"localSqlServer_connectionString": {
+						"value": "[parameters('localSqlServer_connectionString')]"
+					},
+					"localSqlServer_password": {
+						"value": "[parameters('localSqlServer_password')]"
+					},
+					"AzureDataLakeAnalytics_properties_typeProperties_accountName": {
+						"value": "[parameters('AzureDataLakeAnalytics_properties_typeProperties_accountName')]"
+					},
+					"AzureDataLakeAnalytics_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('AzureDataLakeAnalytics_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureDataLakeAnalytics_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureDataLakeAnalytics_properties_typeProperties_tenant')]"
+					},
+					"AzureDataLakeAnalytics_properties_typeProperties_subscriptionId": {
+						"value": "[parameters('AzureDataLakeAnalytics_properties_typeProperties_subscriptionId')]"
+					},
+					"AzureDataLakeAnalytics_properties_typeProperties_resourceGroupName": {
+						"value": "[parameters('AzureDataLakeAnalytics_properties_typeProperties_resourceGroupName')]"
+					},
+					"dlStorage_properties_typeProperties_dataLakeStoreUri": {
+						"value": "[parameters('dlStorage_properties_typeProperties_dataLakeStoreUri')]"
+					},
+					"dlStorage_properties_typeProperties_tenant": {
+						"value": "[parameters('dlStorage_properties_typeProperties_tenant')]"
+					},
+					"dlStorage_properties_typeProperties_subscriptionId": {
+						"value": "[parameters('dlStorage_properties_typeProperties_subscriptionId')]"
+					},
+					"dlStorage_properties_typeProperties_resourceGroupName": {
+						"value": "[parameters('dlStorage_properties_typeProperties_resourceGroupName')]"
+					},
+					"localSqlServer_properties_typeProperties_userName": {
+						"value": "[parameters('localSqlServer_properties_typeProperties_userName')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_0')]"
+			]
 		}
 	]
 }

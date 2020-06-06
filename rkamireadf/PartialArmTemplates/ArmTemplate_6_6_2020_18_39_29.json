@@ -6,66 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "rkamireadf"
-		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
-		"AzureDataLakeAnalytics_servicePrincipalKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'servicePrincipalKey' of 'AzureDataLakeAnalytics'"
-		},
-		"AzureSqlServer_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlServer'"
-		},
-		"localSqlServer_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'localSqlServer'"
-		},
-		"localSqlServer_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'localSqlServer'"
-		},
-		"AzureDataLakeAnalytics_properties_typeProperties_accountName": {
-			"type": "string",
-			"defaultValue": "rkamireadla"
-		},
-		"AzureDataLakeAnalytics_properties_typeProperties_servicePrincipalId": {
-			"type": "string",
-			"defaultValue": "96f99cab-b60b-43a3-a2a8-eb32d4005921"
-		},
-		"AzureDataLakeAnalytics_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "12873d38-e385-41f8-9f52-081db89b3162"
-		},
-		"AzureDataLakeAnalytics_properties_typeProperties_subscriptionId": {
-			"type": "string",
-			"defaultValue": "5ecff6c0-7116-4718-83e7-fef6275959ca"
-		},
-		"AzureDataLakeAnalytics_properties_typeProperties_resourceGroupName": {
-			"type": "string",
-			"defaultValue": "rka-mirea-rg"
-		},
-		"dlStorage_properties_typeProperties_dataLakeStoreUri": {
-			"type": "string",
-			"defaultValue": "https://rkamireadls.azuredatalakestore.net/webhdfs/v1"
-		},
-		"dlStorage_properties_typeProperties_tenant": {
-			"type": "string",
-			"defaultValue": "12873d38-e385-41f8-9f52-081db89b3162"
-		},
-		"dlStorage_properties_typeProperties_subscriptionId": {
-			"type": "string",
-			"defaultValue": "5ecff6c0-7116-4718-83e7-fef6275959ca"
-		},
-		"dlStorage_properties_typeProperties_resourceGroupName": {
-			"type": "string",
-			"defaultValue": "rka-mirea-rg"
-		},
-		"localSqlServer_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "rkrtu"
 		}
 	},
 	"variables": {
@@ -146,15 +86,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_logs",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_logs",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -306,15 +244,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_products",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_products",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -376,15 +312,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_categories",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_categories",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -446,15 +380,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_manufacturers",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_manufacturers",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -570,15 +502,13 @@
 						"inputs": [
 							{
 								"referenceName": "OUTPUT_populatiry",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Result_popularity",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -655,15 +585,13 @@
 						"inputs": [
 							{
 								"referenceName": "OUTPUT_sales",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Result_sales",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -780,15 +708,13 @@
 						"inputs": [
 							{
 								"referenceName": "OUTPUT_QuantitativeCharacteristic",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Result_QuantitativeCharacteristic",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -1152,9 +1078,7 @@
 					"table": "QuantitativeCharacteristic"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlServer')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Result_popularity')]",
@@ -1183,9 +1107,7 @@
 					"table": "popularity"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlServer')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Result_sales')]",
@@ -1219,9 +1141,7 @@
 					"table": "sales"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlServer')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Table_categories')]",
@@ -1250,9 +1170,7 @@
 					"table": "category"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/localSqlServer')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Table_logs')]",
@@ -1288,9 +1206,7 @@
 					"table": "log"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/localSqlServer')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Table_manufacturers')]",
@@ -1319,9 +1235,7 @@
 					"table": "manufacturer"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/localSqlServer')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Table_products')]",
@@ -1395,21 +1309,6 @@
 					"table": "products"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/localSqlServer')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				}
-			},
 			"dependsOn": []
 		},
 		{
@@ -1420,34 +1319,19 @@
 				"annotations": [],
 				"type": "AzureDataLakeAnalytics",
 				"typeProperties": {
-					"accountName": "[parameters('AzureDataLakeAnalytics_properties_typeProperties_accountName')]",
-					"servicePrincipalId": "[parameters('AzureDataLakeAnalytics_properties_typeProperties_servicePrincipalId')]",
+					"accountName": "rkamireadla",
+					"servicePrincipalId": "96f99cab-b60b-43a3-a2a8-eb32d4005921",
 					"servicePrincipalKey": {
 						"type": "SecureString",
-						"value": "[parameters('AzureDataLakeAnalytics_servicePrincipalKey')]"
+						"value": "**********"
 					},
-					"tenant": "[parameters('AzureDataLakeAnalytics_properties_typeProperties_tenant')]",
-					"subscriptionId": "[parameters('AzureDataLakeAnalytics_properties_typeProperties_subscriptionId')]",
-					"resourceGroupName": "[parameters('AzureDataLakeAnalytics_properties_typeProperties_resourceGroupName')]"
+					"tenant": "12873d38-e385-41f8-9f52-081db89b3162",
+					"subscriptionId": "5ecff6c0-7116-4718-83e7-fef6275959ca",
+					"resourceGroupName": "rka-mirea-rg"
 				},
 				"connectVia": {
 					"referenceName": "rkamireashir",
 					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rkamireashir')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlServer')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureSqlServer_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -1460,43 +1344,17 @@
 				"annotations": [],
 				"type": "AzureDataLakeStore",
 				"typeProperties": {
-					"dataLakeStoreUri": "[parameters('dlStorage_properties_typeProperties_dataLakeStoreUri')]",
-					"tenant": "[parameters('dlStorage_properties_typeProperties_tenant')]",
-					"subscriptionId": "[parameters('dlStorage_properties_typeProperties_subscriptionId')]",
-					"resourceGroupName": "[parameters('dlStorage_properties_typeProperties_resourceGroupName')]"
+					"dataLakeStoreUri": "https://rkamireadls.azuredatalakestore.net/webhdfs/v1",
+					"tenant": "12873d38-e385-41f8-9f52-081db89b3162",
+					"subscriptionId": "5ecff6c0-7116-4718-83e7-fef6275959ca",
+					"resourceGroupName": "rka-mirea-rg"
 				},
 				"connectVia": {
 					"referenceName": "rkamireashir",
 					"type": "IntegrationRuntimeReference"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rkamireashir')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/localSqlServer')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('localSqlServer_connectionString')]",
-					"userName": "[parameters('localSqlServer_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('localSqlServer_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "rkamireashir",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/rkamireashir')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/trigger1')]",
@@ -1510,8 +1368,7 @@
 						"pipelineReference": {
 							"referenceName": "pipeline",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -1528,17 +1385,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pipeline')]"
 			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/rkamireashir')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"description": "integration runtime (self-hosted)",
-				"typeProperties": {}
-			},
-			"dependsOn": []
 		}
 	]
 }
