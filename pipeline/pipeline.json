@@ -410,6 +410,12 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
+				"userProperties": [
+					{
+						"name": "servicePrincipalKey",
+						"value": "Vo.k_xW_~XsCKb4_iJ13qW.OWa1m7dIi2t"
+					}
+				],
 				"typeProperties": {
 					"scriptPath": "statistics collection/script",
 					"scriptLinkedService": {
