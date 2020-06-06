@@ -3,6 +3,468 @@
 	"properties": {
 		"activities": [
 			{
+				"name": "import logs",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ID",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 1
+								}
+							},
+							{
+								"source": {
+									"name": "productID",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 2
+								}
+							},
+							{
+								"source": {
+									"name": "DateTime",
+									"type": "DateTime"
+								},
+								"sink": {
+									"type": "DateTime",
+									"ordinal": 3
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Table_logs",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "RAW_logs",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "import products",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ID",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 1
+								}
+							},
+							{
+								"source": {
+									"name": "categoryID",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 2
+								}
+							},
+							{
+								"source": {
+									"name": "manufacturerID",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 3
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String"
+								},
+								"sink": {
+									"type": "String",
+									"ordinal": 4
+								}
+							},
+							{
+								"source": {
+									"name": "1",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 5
+								}
+							},
+							{
+								"source": {
+									"name": "2",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 6
+								}
+							},
+							{
+								"source": {
+									"name": "3",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 7
+								}
+							},
+							{
+								"source": {
+									"name": "4",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 8
+								}
+							},
+							{
+								"source": {
+									"name": "5",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 9
+								}
+							},
+							{
+								"source": {
+									"name": "count",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 10
+								}
+							},
+							{
+								"source": {
+									"name": "price",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 11
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Table_products",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "RAW_products",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "import categories",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ID",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 1
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String"
+								},
+								"sink": {
+									"type": "String",
+									"ordinal": 2
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Table_categories",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "RAW_categories",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "import manufacturers",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"queryTimeout": "02:00:00"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ID",
+									"type": "Int32"
+								},
+								"sink": {
+									"type": "Int64",
+									"ordinal": 1
+								}
+							},
+							{
+								"source": {
+									"name": "name",
+									"type": "String"
+								},
+								"sink": {
+									"type": "String",
+									"ordinal": 2
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Table_manufacturers",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "RAW_manufacturers",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "statistics collection",
+				"type": "DataLakeAnalyticsU-SQL",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"scriptPath": "statistics collection/script",
+					"scriptLinkedService": {
+						"referenceName": "dlStorage",
+						"type": "LinkedServiceReference"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeAnalytics",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "export popularity",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 1
+								},
+								"sink": {
+									"name": "manufacturer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "Int64",
+									"ordinal": 2
+								},
+								"sink": {
+									"name": "reiting",
+									"type": "Int64"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "OUTPUT_populatiry",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Result_popularity",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
 				"name": "export sales",
 				"type": "Copy",
 				"dependsOn": [],
@@ -74,6 +536,122 @@
 				"outputs": [
 					{
 						"referenceName": "Result_sales",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "export QuantitativeCharacteristic",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"type": "DateTime",
+									"ordinal": 1
+								},
+								"sink": {
+									"name": "date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"type": "Int64",
+									"ordinal": 2
+								},
+								"sink": {
+									"name": "mobile count",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"type": "Int64",
+									"ordinal": 3
+								},
+								"sink": {
+									"name": "mobile price",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"type": "Int64",
+									"ordinal": 4
+								},
+								"sink": {
+									"name": "laptop count",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"type": "Int64",
+									"ordinal": 5
+								},
+								"sink": {
+									"name": "laptop price",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"type": "Int64",
+									"ordinal": 6
+								},
+								"sink": {
+									"name": "tablet count",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"type": "Int64",
+									"ordinal": 7
+								},
+								"sink": {
+									"name": "tablet price",
+									"type": "Int64"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "OUTPUT_QuantitativeCharacteristic",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Result_QuantitativeCharacteristic",
 						"type": "DatasetReference"
 					}
 				]
