@@ -6,10 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "rkamireadf"
-		},
-		"trigger1_properties_pipeline_parameters_ADFConnect": {
-			"type": "string",
-			"defaultValue": "Vo.k_xW_~XsCKb4_iJ13qW.OWa1m7dIi2t"
 		}
 	},
 	"variables": {
@@ -90,15 +86,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_logs",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_logs",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -250,15 +244,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_products",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_products",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -320,15 +312,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_categories",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_categories",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -390,15 +380,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_manufacturers",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_manufacturers",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -514,15 +502,13 @@
 						"inputs": [
 							{
 								"referenceName": "OUTPUT_populatiry",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Result_popularity",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -599,15 +585,13 @@
 						"inputs": [
 							{
 								"referenceName": "OUTPUT_sales",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Result_sales",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -724,15 +708,13 @@
 						"inputs": [
 							{
 								"referenceName": "OUTPUT_QuantitativeCharacteristic",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Result_QuantitativeCharacteristic",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -761,7 +743,7 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {
-							"ADFConnect": "[parameters('trigger1_properties_pipeline_parameters_ADFConnect')]"
+							"ADFConnect": "Vo.k_xW_~XsCKb4_iJ13qW.OWa1m7dIi2t"
 						}
 					}
 				],

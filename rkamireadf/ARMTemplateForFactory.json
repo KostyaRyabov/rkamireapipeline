@@ -66,6 +66,10 @@
 		"localSqlServer_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "rkrtu"
+		},
+		"trigger1_properties_pipeline_parameters_ADFConnect": {
+			"type": "string",
+			"defaultValue": "Vo.k_xW_~XsCKb4_iJ13qW.OWa1m7dIi2t"
 		}
 	},
 	"variables": {
@@ -793,6 +797,12 @@
 						]
 					}
 				],
+				"parameters": {
+					"ADFConnect": {
+						"type": "string",
+						"defaultValue": "Vo.k_xW_~XsCKb4_iJ13qW.OWa1m7dIi2t"
+					}
+				},
 				"annotations": []
 			},
 			"dependsOn": [
@@ -1511,7 +1521,9 @@
 							"referenceName": "pipeline",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"ADFConnect": "[parameters('trigger1_properties_pipeline_parameters_ADFConnect')]"
+						}
 					}
 				],
 				"type": "ScheduleTrigger",
