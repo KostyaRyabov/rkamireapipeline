@@ -410,7 +410,6 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
 				"typeProperties": {
 					"scriptPath": "statistics collection/script",
 					"scriptLinkedService": {
@@ -703,12 +702,6 @@
 				]
 			}
 		],
-		"parameters": {
-			"ADFConnect": {
-				"type": "string",
-				"defaultValue": "Vo.k_xW_~XsCKb4_iJ13qW.OWa1m7dIi2t"
-			}
-		},
 		"annotations": []
 	}
 }

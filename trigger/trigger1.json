@@ -8,12 +8,6 @@
 				"pipelineReference": {
 					"referenceName": "pipeline",
 					"type": "PipelineReference"
-				},
-				"parameters": {
-					"ADFConnect": {
-						"type": "SecureString",
-						"value": "**********"
-					}
 				}
 			}
 		],
