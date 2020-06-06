@@ -705,11 +705,8 @@
 		],
 		"parameters": {
 			"ADFConnect": {
-				"type": "securestring",
-				"defaultValue": {
-					"type": "SecureString",
-					"value": "**********"
-				}
+				"type": "string",
+				"defaultValue": "Vo.k_xW_~XsCKb4_iJ13qW.OWa1m7dIi2t"
 			}
 		},
 		"annotations": []
