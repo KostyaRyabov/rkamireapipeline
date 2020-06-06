@@ -86,15 +86,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_logs",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_logs",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -246,15 +244,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_products",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_products",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -316,15 +312,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_categories",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_categories",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -386,15 +380,13 @@
 						"inputs": [
 							{
 								"referenceName": "Table_manufacturers",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "RAW_manufacturers",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -515,15 +507,13 @@
 						"inputs": [
 							{
 								"referenceName": "OUTPUT_populatiry",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Result_popularity",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -600,15 +590,13 @@
 						"inputs": [
 							{
 								"referenceName": "OUTPUT_sales",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Result_sales",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					},
@@ -725,20 +713,45 @@
 						"inputs": [
 							{
 								"referenceName": "OUTPUT_QuantitativeCharacteristic",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Result_QuantitativeCharacteristic",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
 				],
 				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeAnalytics')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeAnalytics')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDataLakeAnalytics",
+				"typeProperties": {
+					"accountName": "rkamireadla",
+					"servicePrincipalId": "96f99cab-b60b-43a3-a2a8-eb32d4005921",
+					"servicePrincipalKey": {
+						"type": "SecureString",
+						"value": "**********"
+					},
+					"tenant": "12873d38-e385-41f8-9f52-081db89b3162",
+					"subscriptionId": "5ecff6c0-7116-4718-83e7-fef6275959ca",
+					"resourceGroupName": "rka-mirea-rg"
+				},
+				"connectVia": {
+					"referenceName": "rkamireashir",
+					"type": "IntegrationRuntimeReference"
+				}
 			},
 			"dependsOn": []
 		},
@@ -754,8 +767,7 @@
 						"pipelineReference": {
 							"referenceName": "pipeline",
 							"type": "PipelineReference"
-						},
-						"parameters": {}
+						}
 					}
 				],
 				"type": "ScheduleTrigger",

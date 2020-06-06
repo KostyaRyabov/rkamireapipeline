@@ -50,9 +50,6 @@
 		"localSqlServer_properties_typeProperties_userName": {
 			"value": "rkrtu"
 		},
-		"trigger1_properties_pipeline_parameters_ADFConnect": {
-			"value": "Vo.k_xW_~XsCKb4_iJ13qW.OWa1m7dIi2t"
-		},
 		"containerUri": {
 			"value": ""
 		},

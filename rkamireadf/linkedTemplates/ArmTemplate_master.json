@@ -67,10 +67,6 @@
 			"type": "string",
 			"defaultValue": "rkrtu"
 		},
-		"trigger1_properties_pipeline_parameters_ADFConnect": {
-			"type": "string",
-			"defaultValue": "Vo.k_xW_~XsCKb4_iJ13qW.OWa1m7dIi2t"
-		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -160,9 +156,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"trigger1_properties_pipeline_parameters_ADFConnect": {
-						"value": "[parameters('trigger1_properties_pipeline_parameters_ADFConnect')]"
 					}
 				}
 			},
